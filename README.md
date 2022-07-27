@@ -15,7 +15,7 @@
       And İl ilce ve mahalle secilir ve kaydet butonuna tiklanir<br>
       And Tab bar uzerinden kategoriler tabına tiklanir<br>
       And Herhangi bir kategori secilip urun listeleme sayfasina yonlendirilir<br>
-     Then Secilen urun kategorisinin listelendigi gorulur<br>
+     Then Secilen urun kategorisinin listelendigi gorulur<br><br>
 ![1](https://user-images.githubusercontent.com/75911392/181192289-b4021ffa-0ae2-44c2-8b2f-3cee9163b9ea.PNG)
 ![2](https://user-images.githubusercontent.com/75911392/181192309-da89a61c-9d19-4a39-815d-95cfaa3d2c2f.PNG)
 ![3](https://user-images.githubusercontent.com/75911392/181192324-344ebbb5-8f72-4ba1-b94c-804ba0119946.PNG)
