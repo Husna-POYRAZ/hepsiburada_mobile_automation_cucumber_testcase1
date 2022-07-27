@@ -76,15 +76,13 @@ public class SampleTest{
     }
 
     @And("Herhangi bir kategori secilip listeleme sayfasina yonlendirilir")
-    public void herhangiBirKategoriSecilipListelemeSayfasinaYonlendirilir() throws InterruptedException {
-        Thread.sleep(10000);
+    public void herhangiBirKategoriSecilipListelemeSayfasinaYonlendirilir(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(androidPhone_category)).click();
     }
 
     @Then("Secilen urun kategorisinin listelendigi gorulur")
-    public void secilenUrunKategorisininListelendiğiGorulur() throws InterruptedException {
+    public void secilenUrunKategorisininListelendiğiGorulur(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(xiaomi_phone)).click();
-        Thread.sleep(10000);
     }
 
     @After("Then")
