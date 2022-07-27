@@ -10,7 +10,8 @@
 @quick-cases<br>
   Scenario: 1-Konum kaydetme<br>
     Given Uygulama acilir<br>
-     When Anasayfada Konum alanina tiklanir<br>
+    When PopUp ekranindaki Devam Tamam ve Reklam kapatma butonlarina sira sira tiklanir<br>
+      And Anasayfada Konum alanina tiklanir<br>
       And İl ilce ve mahalle secilir ve kaydet butonuna tiklanir<br>
       And Tab bar uzerinden kategoriler tabına tiklanir<br>
       And Herhangi bir kategori secilip urun listeleme sayfasina yonlendirilir<br>
