@@ -1,7 +1,9 @@
 package hepsiburada.tests;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +17,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static java.time.Duration.ofMillis;
 
 public class SampleTest{
     private AndroidDriver driver;
@@ -33,7 +38,14 @@ public class SampleTest{
     private final By androidPhone_category = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView/android.widget.ImageView");
     private final By xiaomi_phone = By.xpath("//android.widget.ImageView[@content-desc=\"xiaomi\"]");
 
-
+    public void scroll(int fromX, int fromY, int toX, int toY){
+        TouchAction swipe = new TouchAction(driver)
+                .press(PointOption.point(fromX,fromY))
+                .waitAction(waitOptions(ofMillis(800)))
+                .moveTo(PointOption.point(toX,toY))
+                .release()
+                .perform();
+    }
 
 
     @Given("Uygulama acilir")
@@ -52,10 +64,16 @@ public class SampleTest{
         driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
     }
 
-    @When("Anasayfada Konum alanina tiklanir")
-    public void anasayfadaKonumAlaninaTiklanir() throws InterruptedException {
+    @When("PopUp ekranindaki Devam Tamam ve Reklam kapatma butonlarina sira sira tiklanir")
+    public void popUpEkranindakiDevamTamamVeReklamKapatmaButonlarinaSiraSiraTiklanir() throws InterruptedException {
+        Thread.sleep(5000);
+        scroll(923, 1455,942, 1451);
+        scroll(930, 665, 884, 669);
         Thread.sleep(15000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(closedAdvert)).click();
+    }
+    @And("Anasayfada Konum alanina tiklanir")
+    public void anasayfadaKonumAlaninaTiklanir(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(location)).click();
     }
 
