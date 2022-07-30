@@ -1,4 +1,4 @@
-# Mobile Automation with Cucumber in Java
+# Mobile Automation with Appium and Cucumber in Java
 
 
 @search
